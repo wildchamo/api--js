@@ -1,7 +1,7 @@
 ## Curso sobre el consumo de API REST de Platzi
 Uso de fetch con promesas para llamar la información de una API REST
 
-´´´
+```
 const api = "URL API REST"
 
 fetch(api)
@@ -15,4 +15,4 @@ fetch(api)
   img3.src = data[2].url;
 })
 
-´´´
+```
