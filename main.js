@@ -6,19 +6,26 @@ const api_favorite =
 const img1 = document.getElementById("img1");
 const img2 = document.getElementById("img2");
 const img3 = document.getElementById("img3");
+const img4 = document.getElementById("img4");
 const button = document.querySelector("button");
 
+const spanError = document.getElementById("error");
+
 loadRandomMichis();
+loadFavoritesMichis();
 
 async function loadRandomMichis() {
   const res = await fetch(api_random);
   const data = await res.json();
-
   console.log("Random:");
   console.log(data);
 
-  img1.src = data[0].url;
-  img2.src = data[1].url;
+  if (res.status !== 200) {
+    spanError.innerHTML = "Hubo un error: " + res.status;
+  } else {
+    img1.src = data[0].url;
+    img2.src = data[1].url;
+  }
 }
 
 async function loadFavoritesMichis() {
@@ -28,8 +35,12 @@ async function loadFavoritesMichis() {
   console.log("Favorites:");
   console.log(data);
 
-  img3.src = data[0].url;
-  img4.src = data[1].url;
+  if (res.status !== 200) {
+    spanError.innerHTML = "Hubo un error: " + res.status;
+  } else {
+    img3.src = data[0].url;
+    img4.src = data[1].url;
+  }
 }
 
 //  .then((res) => res.json())
