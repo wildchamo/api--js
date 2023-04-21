@@ -1,5 +1,4 @@
-#Curso sobre el consumo de API REST de Platzi
-
+## Curso sobre el consumo de API REST de Platzi
 Uso de fetch con promesas para llamar la información de una API REST
 
 ´´´
