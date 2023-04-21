@@ -23,3 +23,12 @@ async function reload() {
   //
   //     });
 }
+
+// fetch(api)
+// .then((res) => res.json())
+// .then((data) => {
+//   console.log(data);
+//   img1.src = data[0].url;
+//   img2.src = data[1].url;
+//   img3.src = data[2].url;
+// })
