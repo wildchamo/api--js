@@ -4,16 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Gatos aleatorios!</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Gatos aleatorios!</h1>
+    <h1>Michis App!</h1>
 
-    <img id="img1" style="width: 300px; height: auto" alt="" />
-    <img id="img2" style="width: 300px; height: auto" alt="" />
-    <img id="img3" style="width: 300px; height: auto" alt="" />
+    <section id="randomMichis">
+      <h2>Gatitos aleatorios</h2>
+      <article>
+        <img id="img3" style="width: 300px; height: auto" alt="" />
+        <button>Guardar michi en favoritos</button>
+      </article>
+      <article>
+        <img id="img4" style="width: 300px; height: auto" alt="" />
+        <button>Guardar michi en favoritos</button>
+      </article>
 
-    <button onclick="reload()">Nuevo gatito</button>
+      <button onclick="loadRandomMichis()">Nuevos gatito</button>
+    </section>
+
+    <section id="favoritesMichis">
+      <h2>Gatitos favoritos</h2>
+    </section>
+
     <script src="main.js"></script>
   </body>
 </html>
