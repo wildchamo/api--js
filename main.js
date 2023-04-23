@@ -7,6 +7,7 @@ const img1 = document.getElementById("img1");
 const img2 = document.getElementById("img2");
 const img3 = document.getElementById("img3");
 const img4 = document.getElementById("img4");
+
 const button = document.querySelector("button");
 
 const spanError = document.getElementById("error");
@@ -38,9 +39,34 @@ async function loadFavoritesMichis() {
   if (res.status !== 200) {
     spanError.innerHTML = "Hubo un error: " + res.status;
   } else {
-    img3.src = data[0].url;
-    img4.src = data[1].url;
+    data.forEach((gatito) => {
+      const section = document.getElementById("favoritesMichis");
+      const article = document.createElement("article");
+      const img = document.createElement("img");
+      const button = document.createElement("button");
+      const btnText = document.createTextNode("Sacar al michi de favoritos");
+
+      button.appendChild(btnText);
+      img.src = gatito.image.url;
+      article.appendChild(img);
+      article.appendChild(button);
+
+      section.appendChild(article);
+      // gatito.image.url;
+    });
   }
+}
+
+async function saveFavoriteMichi() {
+  const res = await fetch(api_favorite, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      image_id: "15o",
+    }),
+  });
+
+  console.log(res);
 }
 
 //  .then((res) => res.json())
