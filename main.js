@@ -2,6 +2,8 @@ const api_random =
   "https://api.thecatapi.com/v1/images/search?limit=3&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA";
 const api_favorite =
   "https://api.thecatapi.com/v1/favourites/?&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA";
+const api_delete_favorite = (id) =>
+  `https://api.thecatapi.com/v1/favourites/${id}/?&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA`;
 
 const img1 = document.getElementById("img1");
 const img2 = document.getElementById("img2");
@@ -31,7 +33,10 @@ async function loadRandomMichis() {
     img2.src = data[1].url;
     img3.src = data[2].url;
 
-    btn1random.onclick = () => saveFavoriteMichi(data[0].id);
+    btn1random.onclick = () => {
+      saveFavoriteMichi(data[0].id);
+      loadFavoritesMichis();
+    };
     btn2random.onclick = () => saveFavoriteMichi(data[1].id);
     btn3random.onclick = () => saveFavoriteMichi(data[2].id);
   }
@@ -55,10 +60,10 @@ async function loadFavoritesMichis() {
       const btnText = document.createTextNode("Sacar al michi de favoritos");
 
       button.appendChild(btnText);
+      button.onclick = () => deleteFavoriteMichi(gatito.id);
       img.src = gatito.image.url;
       article.appendChild(img);
       article.appendChild(button);
-
       section.appendChild(article);
       // gatito.image.url;
     });
@@ -73,6 +78,25 @@ async function saveFavoriteMichi(id) {
       image_id: `${id}`,
     }),
   });
+
+  if (res.status !== 200) {
+    spanError.innerHTML = "Hubo un error: " + res.status;
+  } else {
+    alert("Se agrego el gatico a favoritos");
+  }
+
+  console.log(res);
+}
+
+async function deleteFavoriteMichi(id) {
+  const res = await fetch(api_delete_favorite(id), {
+    method: "DELETE",
+  });
+  if (res.status !== 200) {
+    spanError.innerHTML = "Hubo un error: " + res.status;
+  } else {
+    alert("Se elimino el gatico de favoritos");
+  }
 
   console.log(res);
 }
