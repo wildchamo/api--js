@@ -1,5 +1,5 @@
 const api_random =
-  "https://api.thecatapi.com/v1/images/search?limit=2&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA";
+  "https://api.thecatapi.com/v1/images/search?limit=3&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA";
 const api_favorite =
   "https://api.thecatapi.com/v1/favourites/?&api_key=live_vih61PK0ZQGbXpTRRv8KDCUrC4KXhmGjnKQ63tmplsD3hMAO8r74Kg48LSJJ36EA";
 
@@ -29,9 +29,11 @@ async function loadRandomMichis() {
   } else {
     img1.src = data[0].url;
     img2.src = data[1].url;
+    img3.src = data[2].url;
 
     btn1random.onclick = () => saveFavoriteMichi(data[0].id);
     btn2random.onclick = () => saveFavoriteMichi(data[1].id);
+    btn3random.onclick = () => saveFavoriteMichi(data[2].id);
   }
 }
 
