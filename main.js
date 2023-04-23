@@ -52,8 +52,10 @@ async function loadFavoritesMichis() {
   if (res.status !== 200) {
     spanError.innerHTML = "Hubo un error: " + res.status;
   } else {
+    const section = document.getElementById("favoritesMichis");
+    section.innerHTML = "";
+
     data.forEach((gatito) => {
-      const section = document.getElementById("favoritesMichis");
       const article = document.createElement("article");
       const img = document.createElement("img");
       const button = document.createElement("button");
@@ -82,7 +84,7 @@ async function saveFavoriteMichi(id) {
   if (res.status !== 200) {
     spanError.innerHTML = "Hubo un error: " + res.status;
   } else {
-    alert("Se agrego el gatico a favoritos");
+    loadFavoritesMichis();
   }
 
   console.log(res);
@@ -95,7 +97,7 @@ async function deleteFavoriteMichi(id) {
   if (res.status !== 200) {
     spanError.innerHTML = "Hubo un error: " + res.status;
   } else {
-    alert("Se elimino el gatico de favoritos");
+    loadFavoritesMichis();
   }
 
   console.log(res);
