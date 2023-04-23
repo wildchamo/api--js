@@ -10,6 +10,9 @@ const img4 = document.getElementById("img4");
 
 const button = document.querySelector("button");
 
+const btn1random = document.getElementById("btn1random");
+const btn2random = document.getElementById("btn2random");
+
 const spanError = document.getElementById("error");
 
 loadRandomMichis();
@@ -26,6 +29,9 @@ async function loadRandomMichis() {
   } else {
     img1.src = data[0].url;
     img2.src = data[1].url;
+
+    btn1random.onclick = () => saveFavoriteMichi(data[0].id);
+    btn2random.onclick = () => saveFavoriteMichi(data[1].id);
   }
 }
 
@@ -57,12 +63,12 @@ async function loadFavoritesMichis() {
   }
 }
 
-async function saveFavoriteMichi() {
+async function saveFavoriteMichi(id) {
   const res = await fetch(api_favorite, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      image_id: "15o",
+      image_id: `${id}`,
     }),
   });
 

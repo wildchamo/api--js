@@ -1,17 +1,23 @@
-body{
-    text-align: center;
+body {
+  text-align: center;
+  font-family: system-ui;
 }
 img {
   width: 300px;
   height: auto;
 }
 
-.randomMichis{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+.randomMichis {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
-article{
-    display: flex;
-    flex-direction: column;
+article {
+  display: flex;
+  flex-direction: column;
+}
+
+button{
+    margin-top: 10px;
 }
