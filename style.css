@@ -1,0 +1,17 @@
+body{
+    text-align: center;
+}
+img {
+  width: 300px;
+  height: auto;
+}
+
+.randomMichis{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+article{
+    display: flex;
+    flex-direction: column;
+}

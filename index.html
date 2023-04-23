@@ -13,25 +13,27 @@
 
     <section id="randomMichis">
       <h2>Gatitos aleatorios</h2>
-      <article>
-        <img id="img1" style="width: 300px; height: auto" alt="" />
-        <button id="btn1" onclick="saveFavoriteMichi()">
-          Guardar michi en favoritos
-        </button>
-      </article>
-      <article>
-        <img id="img2" style="width: 300px; height: auto" alt="" />
-        <button id="btn2" onclick="saveFavoriteMichi()">
-          Guardar michi en favoritos
-        </button>
-      </article>
+      <div class="randomMichis">
+        <article>
+          <img id="img1" alt="" />
+          <button id="btn1" onclick="saveFavoriteMichi()">
+            Guardar michi en favoritos
+          </button>
+        </article>
+        <article>
+          <img id="img2" alt="" />
+          <button id="btn2" onclick="saveFavoriteMichi()">
+            Guardar michi en favoritos
+          </button>
+        </article>
+      </div>
 
       <button onclick="loadRandomMichis()">Nuevos gatito</button>
     </section>
 
-    <section id="favoritesMichis">
+    <section >
       <h2>Gatitos favoritos</h2>
- 
+      <div id="favoritesMichis" class="randomMichis"></div>
     </section>
 
     <script src="main.js"></script>
